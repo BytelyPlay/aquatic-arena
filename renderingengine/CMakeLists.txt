@@ -1,0 +1,25 @@
+cmake_minimum_required(VERSION 4.3)
+
+set(CMAKE_CXX_STANDARD 26)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_SCAN_FOR_MODULES ON)
+
+file(GLOB_RECURSE MODULE_INTERFACES
+        "src/modules/**/*.ixx"
+)
+find_package(OpenGL REQUIRED)
+
+add_library(AquaRenderingEngine src/modules/AquaticRendering.cpp
+        src/modules/AquaticRendering.ixx
+        src/modules/utils/Logger.ixx
+        src/modules/utils/Logger.cpp)
+
+target_include_directories(AquaRenderingEngine PRIVATE ../libs/glad/include)
+
+target_link_libraries(AquaRenderingEngine PRIVATE glad GL glfw)
+
+target_sources(
+        AquaRenderingEngine
+        PUBLIC
+        FILE_SET CXX_MODULES FILES ${MODULE_INTERFACES}
+)
