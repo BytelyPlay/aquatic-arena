@@ -6,6 +6,7 @@ module;
 
 export module AquaticRendering;
 import Logger;
+import Vec4;
 
 /**
  * This class, is the class you need to start with, to begin using this library.
@@ -52,7 +53,14 @@ private:
     bool initialized = false;
 
     Logger& log = Logger::getInstance();
-    // TODO: Allow the user to use custom shaders. Add some kind of method to change the shaders.
+    /*
+    TODO: Allow the user to use custom shaders.
+    Add some kind of method to change the shaders.
+    */
+    /**
+     * In this Vec4 X = R, Y = G, Z = B, W = A
+     */
+    Vec4<float> backgroundColor = {0.0f, 0.0f, 0.0f, 0.0f};
 public:
     AquaticRendering(const AquaticRendering&) = delete;
     AquaticRendering(AquaticRendering&&) = delete;

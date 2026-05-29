@@ -6,6 +6,8 @@ module;
 #include <GLFW/glfw3.h>
 #include <thread>
 
+#include "glm/vec4.hpp"
+
 module AquaticRendering;
 import Logger;
 
@@ -122,7 +124,12 @@ void AquaticRendering::renderFrame()
     // This is just a temporary placeholder.
     glfwPollEvents();
 
-    glClearColor(0.4, 0.5, 0.6, 1);
+    glClearColor(
+        backgroundColor.x,
+        backgroundColor.y,
+        backgroundColor.z,
+        backgroundColor.w
+    );
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     glfwSwapBuffers(window);

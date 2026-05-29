@@ -13,7 +13,11 @@ add_library(AquaRenderingEngine STATIC src/modules/AquaticRendering.cpp
         src/modules/AquaticRendering.ixx
         src/modules/utils/Logger.ixx
         src/modules/utils/Logger.cpp
-        src/modules/shaders/Shader.ixx)
+        src/modules/shaders/Shader.ixx
+        src/modules/api/vecs/Vec4.ixx
+        src/modules/api/vecs/Vec4.cpp
+        src/modules/concepts/Concepts.ixx
+        src/modules/ebos/EBO.ixx)
 
 target_link_libraries(AquaRenderingEngine PRIVATE glad GL glfw glm::glm)
 
