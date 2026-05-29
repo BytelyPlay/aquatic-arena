@@ -5,16 +5,15 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_SCAN_FOR_MODULES ON)
 
 file(GLOB_RECURSE MODULE_INTERFACES
-        "src/modules/**/*.ixx"
+        "src/modules/*.ixx"
 )
 find_package(OpenGL REQUIRED)
 
-add_library(AquaRenderingEngine src/modules/AquaticRendering.cpp
+add_library(AquaRenderingEngine STATIC src/modules/AquaticRendering.cpp
         src/modules/AquaticRendering.ixx
         src/modules/utils/Logger.ixx
-        src/modules/utils/Logger.cpp)
-
-target_include_directories(AquaRenderingEngine PRIVATE ../libs/glad/include)
+        src/modules/utils/Logger.cpp
+        src/modules/shaders/Shader.ixx)
 
 target_link_libraries(AquaRenderingEngine PRIVATE glad GL glfw)
 

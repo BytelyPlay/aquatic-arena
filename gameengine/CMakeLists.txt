@@ -5,15 +5,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_SCAN_FOR_MODULES ON)
 
 file(GLOB_RECURSE MODULE_INTERFACES
-        "src/modules/**/*.ixx"
+        "src/modules/*.ixx"
 )
 
-target_link_libraries(AquaRenderingEngine)
-
-add_library(AquaEngine src/modules/AquaEngine.cpp)
+add_library(AquaEngine STATIC src/modules/AquaEngine.cpp)
 
 target_sources(
         AquaEngine
         PUBLIC
         FILE_SET CXX_MODULES FILES ${MODULE_INTERFACES}
 )
+target_link_libraries(AquaEngine PRIVATE AquaRenderingEngine)

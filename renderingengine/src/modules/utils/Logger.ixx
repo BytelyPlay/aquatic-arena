@@ -1,10 +1,13 @@
 module;
+#include <functional>
 #include <memory>
 
 export module Logger;
 
 /**
- * This logger should be implemented by the user of the library. Call setInstance and set the instance.
+ * This logger should be implemented by the user of the library.
+ * Call setInstance and set the instance.
+ * This is the system, until I find a better one.
  */
 export class Logger
 {
@@ -19,4 +22,6 @@ public:
     virtual void error(std::string s) = 0;
 private:
     static std::unique_ptr<Logger> logger;
+public:
+    virtual ~Logger() = default;
 };
