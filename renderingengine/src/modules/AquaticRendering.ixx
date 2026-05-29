@@ -52,6 +52,7 @@ private:
     bool initialized = false;
 
     Logger& log = Logger::getInstance();
+    // TODO: Allow the user to use custom shaders. Add some kind of method to change the shaders.
 public:
     AquaticRendering(const AquaticRendering&) = delete;
     AquaticRendering(AquaticRendering&&) = delete;

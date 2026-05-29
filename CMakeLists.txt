@@ -9,8 +9,9 @@ add_subdirectory(renderingengine)
 add_subdirectory(gameengine)
 add_subdirectory(game)
 
-# Only AquaRenderingEngine is allowed to depend on this.
+# libs
 add_subdirectory(libs/glfw)
+add_subdirectory(libs/glm)
 
 add_library(glad STATIC libs/glad/src/gl.c)
 target_include_directories(glad PUBLIC libs/glad/include)

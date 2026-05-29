@@ -15,7 +15,7 @@ add_library(AquaRenderingEngine STATIC src/modules/AquaticRendering.cpp
         src/modules/utils/Logger.cpp
         src/modules/shaders/Shader.ixx)
 
-target_link_libraries(AquaRenderingEngine PRIVATE glad GL glfw)
+target_link_libraries(AquaRenderingEngine PRIVATE glad GL glfw glm::glm)
 
 target_sources(
         AquaRenderingEngine
