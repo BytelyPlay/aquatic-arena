@@ -30,6 +30,9 @@ public:
      * Constructor for AquaticRendering.
      */
     AquaticRendering();
+public:
+    Vec4<float> getRGBA();
+    void setRGBA(Vec4<float> rgba);
 private:
     bool initGLFW();
     bool initGlad();

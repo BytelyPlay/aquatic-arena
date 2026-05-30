@@ -17,7 +17,8 @@ add_library(AquaRenderingEngine STATIC src/modules/AquaticRendering.cpp
         src/modules/api/vecs/Vec4.ixx
         src/modules/api/vecs/Vec4.cpp
         src/modules/concepts/Concepts.ixx
-        src/modules/ebos/EBO.ixx)
+        src/modules/ebos/EBO.ixx
+        src/modules/api/vecs/Vec4.ixx)
 
 target_link_libraries(AquaRenderingEngine PRIVATE glad GL glfw glm::glm)
 

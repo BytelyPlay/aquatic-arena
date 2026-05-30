@@ -55,6 +55,17 @@ void AquaticRendering::stopRendering()
 // PUBLIC
 AquaticRendering::AquaticRendering()
 = default;
+// PUBLIC
+Vec4<float> AquaticRendering::getRGBA()
+{
+    return this->backgroundColor;
+}
+
+void AquaticRendering::setRGBA(Vec4<float> rgba)
+{
+    this->backgroundColor = rgba;
+}
+
 // PRIVATE
 bool AquaticRendering::initGLFW()
 {

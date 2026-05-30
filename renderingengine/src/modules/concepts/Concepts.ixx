@@ -12,4 +12,13 @@ export namespace Concepts
         t.z;
         t.w;
     };
+    // T = Type to check, CoordType = type of coordinates
+    template<typename T, typename CoordType>
+    concept hasXYZWConstructor = requires(
+        CoordType x, CoordType y,
+        CoordType z, CoordType w
+    )
+    {
+        T(x, y, z, w);
+    };
 }

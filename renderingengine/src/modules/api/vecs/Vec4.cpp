@@ -4,30 +4,31 @@ module;
 module Vec4;
 
 template <typename T>
-template<Concepts::hasXYZW A>
-Vec4<T>::Vec4(const A& other)
-{
-    this(other.x, other.y, other.z, other.w);
-}
-
-template <typename T>
-Vec4<T>::Vec4(T x, T y, T z, T w) : x(x), y(y), z(z), w(w)
-{
-    static_assert(
-        std::is_floating_point_v<T>() ||
-        std::is_integral_v<T>()
-    );
-}
-
-template <typename T>
 Vec4<T>::Vec4()
 {
     this(Vec4(0, 0, 0, 0));
 }
 
 template <typename T>
-template <typename A>
-Vec4<T>::operator A() const
+Vec4<T> Vec4<T>::operator+(Vec4 other) const
 {
-    return A(x, y, z, w);
+    return { other.x + x, other.y + y, other.z + z, other.w + w };
+}
+
+template <typename T>
+Vec4<T> Vec4<T>::operator-(Vec4 other) const
+{
+    return { other.x - x, other.y - y, other.z - z, other.w - w };
+}
+
+template <typename T>
+Vec4<T> Vec4<T>::operator*(Vec4 other) const
+{
+    return { other.x * x, other.y * y, other.z * z, other.w * w };
+}
+
+template <typename T>
+Vec4<T> Vec4<T>::operator/(Vec4 other) const
+{
+    return { other.x / x, other.y / y, other.z / z, other.w / w };
 }
