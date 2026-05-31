@@ -26,9 +26,16 @@ add_library(AquaRenderingEngine STATIC src/modules/AquaticRendering.cpp
         src/modules/ebo/EBO.ixx
         src/modules/ebo/EBO.cpp
         src/modules/meshes/Mesh.cpp
+        src/modules/meshes/Mesh.cpp
+        src/modules/textures/Texture.ixx
+        src/modules/textures/Texture.cpp
+        src/modules/utils/FileUtils.ixx
+        src/modules/utils/FileUtils.cpp
+        src/modules/vbo/SimpleVBO.ixx
+        src/modules/vbo/SimpleVBO.cpp
 )
 
-target_link_libraries(AquaRenderingEngine PRIVATE glad GL glfw glm::glm)
+target_link_libraries(AquaRenderingEngine PRIVATE glad GL glfw glm::glm stb_image)
 
 target_sources(
         AquaRenderingEngine

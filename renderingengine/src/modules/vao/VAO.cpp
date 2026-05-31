@@ -1,4 +1,5 @@
 module;
+#include <glad/gl.h>
 
 module VAO;
 
@@ -20,7 +21,7 @@ void VAO::buildInternal()
 {
     if (built) return;
 
-    build(vaoId, mode);
+    if (!build(vaoId, mode)) log.error("Couldn't build VAO");
     built = true;
 }
 

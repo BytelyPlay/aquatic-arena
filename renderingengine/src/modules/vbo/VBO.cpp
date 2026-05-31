@@ -3,11 +3,15 @@ module;
 module VBO;
 
 // PUBLIC
+VBO::VBO()
+= default;
+
+// PUBLIC
 unsigned int VBO::getVBOId()
 {
     if (built) return vboId;
 
-    build(vboId, size);
+    if (!build(vboId)) log.error("Couldn't build VBO.");
     built = true;
 
     return vboId;
@@ -15,3 +19,8 @@ unsigned int VBO::getVBOId()
 
 // PROTECTED
 // PRIVATE
+// PUBLIC
+VBO::~VBO()
+= default;
+
+// PUBLIC

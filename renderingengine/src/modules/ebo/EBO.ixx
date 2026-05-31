@@ -2,6 +2,7 @@ module;
 #include "glad/gl.h"
 
 export module EBO;
+import Logger;
 
 export class EBO
 {
@@ -24,7 +25,7 @@ protected:
      * @param indiceCount The amount of indices.
      * @param type The type used for indices.
      */
-    virtual void build(unsigned int& eboId,
+    virtual bool build(unsigned int& eboId,
         unsigned int& indiceCount,
         GLenum& type) = 0;
 private:
@@ -44,4 +45,14 @@ private:
      * If it was built or not, doesn't mean it was successful, just that we tried to build it.
      */
     bool built = false;
+private:
+    Logger& log = Logger::getInstance();
+public:
+    virtual ~EBO() = default;
+public:
+    EBO(const EBO&) = delete;
+    EBO(EBO&) = delete;
+
+    EBO& operator=(const EBO&) = delete;
+    EBO& operator=(EBO&&) = delete;
 };

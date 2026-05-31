@@ -13,5 +13,9 @@ add_subdirectory(game)
 add_subdirectory(libs/glfw)
 add_subdirectory(libs/glm)
 
-add_library(glad STATIC libs/glad/src/gl.c)
+add_library(glad STATIC libs/glad/src/gl.c
+        libs/stb_image/stb_image.cpp)
+add_library(stb_image STATIC libs/stb_image/stb_image.cpp)
+
+target_include_directories(stb_image PUBLIC libs/stb_image/include)
 target_include_directories(glad PUBLIC libs/glad/include)

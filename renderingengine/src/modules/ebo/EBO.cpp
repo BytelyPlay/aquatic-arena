@@ -1,4 +1,5 @@
 module;
+#include <glad/gl.h>
 
 module EBO;
 
@@ -27,7 +28,7 @@ void EBO::buildInternal()
 {
     if (built) return;
 
-    build(eboId, indiceCount, type);
+    if (!build(eboId, indiceCount, type)) log.error("Couldn't build EBO.");
     built = true;
 }
 

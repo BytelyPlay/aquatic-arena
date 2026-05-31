@@ -2,6 +2,7 @@ module;
 #include "glad/gl.h"
 
 export module VAO;
+import Logger;
 
 export class VAO
 {
@@ -24,7 +25,7 @@ protected:
      * @param id The ID of the VAO.
      * @param mode The mode to render in.
      */
-    virtual void build(unsigned int& id, GLenum& mode) = 0;
+    virtual bool build(unsigned int& id, GLenum& mode) = 0;
 private:
     void buildInternal();
 private:
@@ -41,4 +42,14 @@ private:
      * If it was built or not, doesn't mean it was successful, just that we tried to build it.
      */
     bool built = false;
+private:
+    Logger& log = Logger::getInstance();
+public:
+    virtual ~VAO() = default;
+public:
+    VAO(const VAO&) = delete;
+    VAO(VAO&) = delete;
+
+    VAO& operator=(const VAO&) = delete;
+    VAO& operator=(VAO&&) = delete;
 };
