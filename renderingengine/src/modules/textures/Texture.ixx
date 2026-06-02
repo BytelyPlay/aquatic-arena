@@ -1,14 +1,18 @@
 module;
 #include <string>
 #include <vector>
+#include <glad/gl.h>
 
 export module Texture;
 import Logger;
 
-constexpr int DESIRED_AMOUNT_OF_CHANNELS = 4;
-
 export class Texture
 {
+private:
+    static constexpr Glenum TEXTURE_WRAPPING_BEHAVIOR = GL_REPEAT;
+    static constexpr Glenum MIPMAP_BEHAVIOR = GL_LINEAR_MIPMAP_LINEAR;
+
+    static constexpr int DESIRED_AMOUNT_OF_CHANNELS = 4;
 public:
     /**
      * Use a byte array to load a texture.
@@ -38,21 +42,42 @@ public:
     unsigned int getTextureID();
 private:
     /**
+     * This builds the texture, if it isn't already built, and also then marks it as built.
+     */
+    void buildInternal();
+    /**
      * Compiles the texture.
      * @return Successful or not
      */
-    bool build();
+    bool build(int texWidth, int texHeight);
+
+    /**
+     * Sets all the parameters for the bound texture.
+     */
+    void setPropertiesForTexture();
 private:
     /**
      * I really didn't have any idea what to call this. Basically you give it the compressed file format's bytes, and it converts it into raw pixels.
+     * @return successful or not.
      */
     bool turnCompressedToRawPixels(std::vector<unsigned char> bytes);
 private:
+    /**
+     * If the texture is compiled/built, this doesn't mean that it is successful, just that it was built.
+     */
+    bool built = false;
+    /**
+     * The texture ID from OpenGL, defaults to 0.
+     */
     unsigned int textureId = 0;
     /**
      * This is ready for OpenGL to use.
      */
     std::vector<unsigned char> textureBytes;
+    /**
+     * Texture width and height
+     */
+    unsigned int texWidth = 0, texHeight = 0;
 private:
     Logger& log = Logger::getInstance();
 };

@@ -31,8 +31,8 @@ public:
      */
     AquaticRendering();
 public:
-    Vec4<float> getRGBA();
-    void setRGBA(Vec4<float> rgba);
+    Vec4<float> getBackgroundColor();
+    void setBackgroundColor(Vec4<float> backgroundColor);
 private:
     bool initGLFW();
     bool initGlad();

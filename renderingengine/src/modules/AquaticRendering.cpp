@@ -56,14 +56,14 @@ void AquaticRendering::stopRendering()
 AquaticRendering::AquaticRendering()
 = default;
 // PUBLIC
-Vec4<float> AquaticRendering::getRGBA()
+Vec4<float> AquaticRendering::getBackgroundColor()
 {
     return this->backgroundColor;
 }
 
-void AquaticRendering::setRGBA(Vec4<float> rgba)
+void AquaticRendering::setBackgroundColor(Vec4<float> backgroundColor)
 {
-    this->backgroundColor = rgba;
+    this->backgroundColor = backgroundColor;
 }
 
 // PRIVATE

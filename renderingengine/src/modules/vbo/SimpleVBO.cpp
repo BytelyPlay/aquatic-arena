@@ -1,5 +1,6 @@
 module;
 #include <glad/gl.h>
+#include <vector>
 
 module SimpleVBO;
 

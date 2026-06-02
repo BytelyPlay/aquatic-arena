@@ -1,5 +1,4 @@
 module;
-#include <functional>
 #include <memory>
 
 export module Logger;

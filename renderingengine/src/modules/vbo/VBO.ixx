@@ -1,5 +1,4 @@
 module;
-#include <stdexcept>
 
 export module VBO;
 import Logger;
