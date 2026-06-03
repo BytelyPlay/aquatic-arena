@@ -9,8 +9,8 @@ import Logger;
 export class Texture
 {
 private:
-    static constexpr Glenum TEXTURE_WRAPPING_BEHAVIOR = GL_REPEAT;
-    static constexpr Glenum MIPMAP_BEHAVIOR = GL_LINEAR_MIPMAP_LINEAR;
+    static constexpr GLenum TEXTURE_WRAPPING_BEHAVIOR = GL_REPEAT;
+    static constexpr GLenum MIPMAP_BEHAVIOR = GL_LINEAR_MIPMAP_LINEAR;
 
     static constexpr int DESIRED_AMOUNT_OF_CHANNELS = 4;
 public:
@@ -77,7 +77,7 @@ private:
     /**
      * Texture width and height
      */
-    unsigned int texWidth = 0, texHeight = 0;
+    int texWidth = 0, texHeight = 0;
 private:
     Logger& log = Logger::getInstance();
 };

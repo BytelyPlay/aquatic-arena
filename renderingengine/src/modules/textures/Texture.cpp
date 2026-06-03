@@ -67,11 +67,11 @@ void Texture::buildInternal()
 
 bool Texture::build(int texWidth, int texHeight)
 {
-    glGenTextures(1, textureId);
+    glGenTextures(1, &textureId);
 
     if (textureId <= 0)
     {
-        log.warn("Couldn't build texture.")
+        log.warn("Couldn't build texture.");
         return false;
     }
     glBindTexture(GL_TEXTURE_2D, textureId);
@@ -80,10 +80,11 @@ bool Texture::build(int texWidth, int texHeight)
 
     glTexImage2D(
         GL_TEXTURE_2D, 0, GL_RGBA,
-        texWidth, texHeight, 0,
-        GL_UNSIGNED_BYTE, textureBytes
+        texWidth, texHeight, 0, GL_RGBA,
+        GL_UNSIGNED_BYTE, textureBytes.data()
     );
     glGenerateMipmap(GL_TEXTURE_2D);
+    return true;
 }
 
 void Texture::setPropertiesForTexture()

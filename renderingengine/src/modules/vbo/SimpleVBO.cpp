@@ -6,8 +6,7 @@ module SimpleVBO;
 
 // PUBLIC
 SimpleVBO::SimpleVBO(std::vector<int> vertices) : VBO()
-{
-}
+{}
 
 // PROTECTED
 bool SimpleVBO::build(unsigned int& vboId)

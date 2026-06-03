@@ -26,3 +26,11 @@ void VAO::buildInternal()
 }
 
 // PRIVATE
+// PUBLIC
+VAO::~VAO()
+{
+    glDeleteVertexArrays(1, &vaoId);
+    vaoId = 0;
+}
+
+// PUBLIC

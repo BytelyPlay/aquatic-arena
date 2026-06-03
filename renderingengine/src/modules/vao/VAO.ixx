@@ -4,6 +4,9 @@ module;
 export module VAO;
 import Logger;
 
+/**
+ * Deletes the VAO on destruction.
+ */
 export class VAO
 {
 public:
@@ -45,7 +48,7 @@ private:
 private:
     Logger& log = Logger::getInstance();
 public:
-    virtual ~VAO() = default;
+    virtual ~VAO();
 public:
     VAO(const VAO&) = delete;
     VAO(VAO&) = delete;
