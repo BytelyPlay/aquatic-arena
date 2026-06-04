@@ -14,9 +14,7 @@ template <typename T, size_t size>
 template <typename... Args>
 requires(sizeof...(Args) == size)
 Vec<T, size>::Vec(Args... args) : data { static_cast<T>(args)... }
-{
-    data = { static_cast<T>(args)... };
-}
+{}
 
 template <typename T, size_t size>
 template <typename A> requires Concepts::hasSubscriptOperator<A, T>
