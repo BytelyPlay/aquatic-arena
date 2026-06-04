@@ -21,4 +21,11 @@ export namespace Concepts
     {
         T(x, y, z, w);
     };
+    template<typename T, typename IndexType>
+    concept hasSubscriptOperator = requires(
+        T t, IndexType i
+    )
+    {
+        t[i];
+    };
 }

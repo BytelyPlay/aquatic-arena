@@ -10,6 +10,7 @@ module;
 
 module AquaticRendering;
 import Logger;
+import Vecs;
 
 // PUBLIC
 bool AquaticRendering::init(
@@ -56,12 +57,12 @@ void AquaticRendering::stopRendering()
 AquaticRendering::AquaticRendering()
 = default;
 // PUBLIC
-Vec4<float> AquaticRendering::getBackgroundColor()
+Vecs::Vec4<float> AquaticRendering::getBackgroundColor()
 {
     return this->backgroundColor;
 }
 
-void AquaticRendering::setBackgroundColor(Vec4<float> backgroundColor)
+void AquaticRendering::setBackgroundColor(Vecs::Vec4<float> backgroundColor)
 {
     this->backgroundColor = backgroundColor;
 }

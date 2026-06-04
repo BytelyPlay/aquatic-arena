@@ -14,10 +14,7 @@ add_library(AquaRenderingEngine STATIC src/modules/AquaticRendering.cpp
         src/modules/utils/Logger.ixx
         src/modules/utils/Logger.cpp
         src/modules/shaders/Shader.ixx
-        src/modules/api/vecs/Vec4.ixx
-        src/modules/api/vecs/Vec4.cpp
         src/modules/concepts/Concepts.ixx
-        src/modules/api/vecs/Vec4.ixx
         src/modules/vbo/VBO.ixx
         src/modules/vbo/VBO.cpp
         src/modules/vao/VAO.ixx
@@ -38,6 +35,9 @@ add_library(AquaRenderingEngine STATIC src/modules/AquaticRendering.cpp
         src/modules/vao/SimpleVAO.cpp
         src/modules/utils/OpenGLUtils.ixx
         src/modules/utils/OpenGLUtils.cpp
+        src/modules/api/vecs/Vecs.ixx
+        src/modules/api/vecs/Vec.ixx
+        src/modules/api/vecs/Vec.cpp
 )
 
 target_link_libraries(AquaRenderingEngine PRIVATE glad GL glfw glm::glm stb_image)

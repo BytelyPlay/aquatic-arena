@@ -1,12 +1,11 @@
 module;
-#include <condition_variable>
 #include <thread>
 
 #include "GLFW/glfw3.h"
 
 export module AquaticRendering;
 import Logger;
-import Vec4;
+import Vecs;
 
 /**
  * This class, is the class you need to start with, to begin using this library.
@@ -31,8 +30,8 @@ public:
      */
     AquaticRendering();
 public:
-    Vec4<float> getBackgroundColor();
-    void setBackgroundColor(Vec4<float> backgroundColor);
+    Vecs::Vec4<float> getBackgroundColor();
+    void setBackgroundColor(Vecs::Vec4<float> backgroundColor);
 private:
     bool initGLFW();
     bool initGlad();
@@ -63,7 +62,7 @@ private:
     /**
      * In this Vec4 X = R, Y = G, Z = B, W = A
      */
-    Vec4<float> backgroundColor = {0.0f, 0.0f, 0.0f, 0.0f};
+    Vecs::Vec4<float> backgroundColor = {0.0f, 0.0f, 0.0f, 0.0f};
 public:
     AquaticRendering(const AquaticRendering&) = delete;
     AquaticRendering(AquaticRendering&&) = delete;
