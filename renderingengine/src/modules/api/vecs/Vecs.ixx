@@ -5,9 +5,9 @@ import Vec;
 
 export namespace Vecs
 {
-    template<typename T>
-    using Vec3 = Vec<T, 3>;
+    using Vec3f = Vec<float, 3>;
+    using Vec4f = Vec<float, 4>;
 
-    template<typename T>
-    using Vec4 = Vec<T, 4>;
+    using Vec3d = Vec<double, 3>;
+    using Vec4d = Vec<double, 4>;
 }

@@ -1,11 +1,13 @@
 module;
 #include <memory>
+#include <vector>
 
 export module Mesh;
 import VAO;
 import VBO;
 import EBO;
 import Texture;
+import Vecs;
 
 export struct Mesh
 {
