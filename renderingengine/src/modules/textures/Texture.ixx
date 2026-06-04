@@ -10,7 +10,7 @@ export class Texture
 {
 private:
     static constexpr GLenum TEXTURE_WRAPPING_BEHAVIOR = GL_REPEAT;
-    static constexpr GLenum MIPMAP_BEHAVIOR = GL_LINEAR_MIPMAP_LINEAR;
+    static constexpr GLenum MIPMAP_BEHAVIOR = GL_NEAREST_MIPMAP_LINEAR;
 
     static constexpr int DESIRED_AMOUNT_OF_CHANNELS = 4;
 public:
