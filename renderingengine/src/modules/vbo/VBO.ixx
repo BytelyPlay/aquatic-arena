@@ -13,6 +13,11 @@ public:
      * @return Returns 0 if we can't get the ID
      */
     unsigned int getVBOId();
+    /**
+     * Binds the VBO.
+     * @return Whether it was successful or not.
+     */
+    bool bind();
 protected:
     /**
      * Builds the VBO

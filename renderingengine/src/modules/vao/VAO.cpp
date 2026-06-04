@@ -4,6 +4,10 @@ module;
 module VAO;
 
 // PUBLIC
+VAO::VAO()
+= default;
+
+// PUBLIC
 unsigned int VAO::getVAOId()
 {
     buildInternal();

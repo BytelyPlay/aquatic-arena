@@ -1,4 +1,5 @@
 module;
+#include <glad/gl.h>
 
 module VBO;
 
@@ -15,6 +16,19 @@ unsigned int VBO::getVBOId()
     built = true;
 
     return vboId;
+}
+
+bool VBO::bind()
+{
+    unsigned int id = getVBOId();
+    if (id <= 0)
+    {
+        log.error("Couldn't bind VBO.");
+        return false;
+    }
+    glBindBuffer(GL_ARRAY_BUFFER, id);
+
+    return true;
 }
 
 // PROTECTED

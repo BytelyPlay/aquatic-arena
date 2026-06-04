@@ -10,6 +10,8 @@ import Logger;
 export class VAO
 {
 public:
+    VAO();
+public:
     /**
      * Returns the VAO ID, will build if not built.
      * @return Returns 0 if not successful, otherwise the VAO ID
@@ -25,10 +27,10 @@ protected:
     /**
      * Should build the VAO, it is expected that you will need the
      * VBO and (maybe) EBO, that should be the job of the subclass.
-     * @param id The ID of the VAO.
+     * @param vaoId The ID of the VAO.
      * @param mode The mode to render in.
      */
-    virtual bool build(unsigned int& id, GLenum& mode) = 0;
+    virtual bool build(unsigned int& vaoId, GLenum& mode) = 0;
 private:
     void buildInternal();
 private:
@@ -45,7 +47,7 @@ private:
      * If it was built or not, doesn't mean it was successful, just that we tried to build it.
      */
     bool built = false;
-private:
+protected:
     Logger& log = Logger::getInstance();
 public:
     virtual ~VAO();

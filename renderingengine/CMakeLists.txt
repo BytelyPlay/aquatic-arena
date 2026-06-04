@@ -36,6 +36,8 @@ add_library(AquaRenderingEngine STATIC src/modules/AquaticRendering.cpp
         src/modules/shaders/Shader.cpp
         src/modules/vao/SimpleVAO.ixx
         src/modules/vao/SimpleVAO.cpp
+        src/modules/utils/OpenGLUtils.ixx
+        src/modules/utils/OpenGLUtils.cpp
 )
 
 target_link_libraries(AquaRenderingEngine PRIVATE glad GL glfw glm::glm stb_image)

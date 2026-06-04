@@ -1,5 +1,6 @@
 module;
 #include <glad/gl.h>
+#include <vector>
 
 export module SimpleVAO;
 import VAO;
@@ -8,10 +9,33 @@ import VBO;
 
 export class SimpleVAO : public VAO
 {
+    struct TypeEntry
+    {
+        /**
+         * The type (e.g. GL_UNSIGNED_BYTE)
+         */
+        GLenum type;
+        /**
+         * The amount of times to use this type.
+         */
+        unsigned int size;
+    };
 public:
-    SimpleVAO(VBO& vbo, EBO& ebo);
-public:
-    bool build(unsigned int& id, GLenum& mode) override;
+    /**
+     * This creates a VAO, that is quite flexible.
+     * @param vbo The VBO to bind to.
+     * @param types The types in the order you want them.
+     */
+    SimpleVAO(VBO& vbo, std::vector<TypeEntry> types);
+protected:
+    bool build(unsigned int& vaoId, GLenum& mode) override;
 private:
-
+    bool fillVertexAttributes();
+private:
+    VBO& vbo;
+    /**
+     * The types in the proper order.
+     * TODO: Add more information...
+     */
+    std::vector<TypeEntry> types;
 };
