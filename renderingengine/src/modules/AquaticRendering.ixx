@@ -30,8 +30,8 @@ public:
      */
     AquaticRendering();
 public:
-    Vecs::Vec4<float> getBackgroundColor();
-    void setBackgroundColor(Vecs::Vec4<float> backgroundColor);
+    Vecs::Vec4f getBackgroundColor();
+    void setBackgroundColor(Vecs::Vec4f backgroundColor);
 private:
     bool initGLFW();
     bool initGlad();
@@ -62,7 +62,7 @@ private:
     /**
      * In this Vec4 X = R, Y = G, Z = B, W = A
      */
-    Vecs::Vec4<float> backgroundColor = {0.0f, 0.0f, 0.0f, 0.0f};
+    Vecs::Vec4f backgroundColor = {0.0f, 0.0f, 0.0f, 0.0f};
 public:
     AquaticRendering(const AquaticRendering&) = delete;
     AquaticRendering(AquaticRendering&&) = delete;

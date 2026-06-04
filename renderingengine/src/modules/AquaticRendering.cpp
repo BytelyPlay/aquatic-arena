@@ -57,12 +57,12 @@ void AquaticRendering::stopRendering()
 AquaticRendering::AquaticRendering()
 = default;
 // PUBLIC
-Vecs::Vec4<float> AquaticRendering::getBackgroundColor()
+Vecs::Vec4f AquaticRendering::getBackgroundColor()
 {
     return this->backgroundColor;
 }
 
-void AquaticRendering::setBackgroundColor(Vecs::Vec4<float> backgroundColor)
+void AquaticRendering::setBackgroundColor(Vecs::Vec4f backgroundColor)
 {
     this->backgroundColor = backgroundColor;
 }
