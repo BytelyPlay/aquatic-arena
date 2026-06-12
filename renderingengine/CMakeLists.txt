@@ -38,6 +38,8 @@ add_library(AquaRenderingEngine STATIC src/modules/AquaticRendering.cpp
         src/modules/api/vecs/Vecs.ixx
         src/modules/api/vecs/Vec.ixx
         src/modules/api/vecs/Vec.cpp
+        src/modules/models/Model.ixx
+        src/modules/models/Model.cpp
 )
 
 target_link_libraries(AquaRenderingEngine PRIVATE glad GL glfw glm::glm stb_image)

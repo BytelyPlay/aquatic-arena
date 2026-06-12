@@ -10,4 +10,8 @@ export namespace Vecs
 
     using Vec3d = Vec<double, 3>;
     using Vec4d = Vec<double, 4>;
+
+    using Vec3i = Vec<int, 3>;
+
+    using Vec3b = Vec<unsigned char, 3>;
 }

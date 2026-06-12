@@ -1,8 +1,33 @@
 module;
+#include <cassert>
+#include <cstring>
 #include <glad/gl.h>
+#include <memory>
+#include <vector>
 
 module Mesh;
 import Logger;
+import SimpleVAO;
+import SimpleVBO;
+import Vecs;
+
+const std::vector<SimpleVAO::TypeEntry> Mesh::ENTRIES = {
+    {GL_UNSIGNED_BYTE, 3},
+    {GL_UNSIGNED_BYTE, 3}
+};
+
+Mesh::Mesh(
+    std::vector<Vertex> vertices,
+    std::vector<unsigned int> indices
+)
+{
+    vbo = std::make_unique<SimpleVBO>(
+        vertices.data(),
+        vertices.size() * sizeof(Vecs::Vec3b)
+    );
+    vao = std::make_unique<SimpleVAO>(*vbo, ENTRIES);
+    static_assert(false);
+}
 
 bool Mesh::draw()
 {

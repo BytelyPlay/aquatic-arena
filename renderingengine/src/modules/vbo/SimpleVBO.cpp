@@ -1,12 +1,20 @@
 module;
+#include <cstring>
 #include <glad/gl.h>
 #include <vector>
 
 module SimpleVBO;
 
 // PUBLIC
-SimpleVBO::SimpleVBO(std::vector<int> vertices) : VBO()
+SimpleVBO::SimpleVBO(std::vector<unsigned char> data) :
+data(data), VBO()
 {}
+
+SimpleVBO::SimpleVBO(const void* ptr, const size_t& size)
+{
+    data.resize(size);
+    memcpy(data.data(), ptr, size);
+}
 
 // PROTECTED
 bool SimpleVBO::build(unsigned int& vboId)
@@ -18,8 +26,8 @@ bool SimpleVBO::build(unsigned int& vboId)
     glBindBuffer(GL_ARRAY_BUFFER, vboId);
 
     glBufferData(
-        GL_ARRAY_BUFFER, vertices.size(),
-        vertices.data(), GL_STATIC_DRAW
+        GL_ARRAY_BUFFER, data.size(),
+        data.data(), GL_STATIC_DRAW
     );
     return true;
 }

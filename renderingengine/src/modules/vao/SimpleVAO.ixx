@@ -9,6 +9,7 @@ import VBO;
 
 export class SimpleVAO : public VAO
 {
+public:
     struct TypeEntry
     {
         /**

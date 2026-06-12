@@ -7,7 +7,7 @@ module Vec;
 template <typename T, size_t size>
 Vec<T, size>::Vec()
 {
-    data = { T() };
+    data = {};
 }
 
 template <typename T, size_t size>
