@@ -19,6 +19,17 @@ GLenum VAO::getMode()
     buildInternal();
     return mode;
 }
+// PUBLIC
+bool VAO::use()
+{
+    auto id = getVAOId();
+    if (id <= 0) return false;
+
+    glBindVertexArray(id);
+    
+    return true;
+}
+
 // PROTECTED
 // PRIVATE
 void VAO::buildInternal()

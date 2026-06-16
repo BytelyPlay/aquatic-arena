@@ -23,6 +23,8 @@ public:
        GL_NONE if we couldn't build.
      */
     GLenum getMode();
+public:
+    bool use();
 protected:
     /**
      * Should build the VAO, it is expected that you will need the

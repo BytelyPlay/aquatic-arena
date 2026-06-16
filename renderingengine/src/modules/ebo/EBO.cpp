@@ -3,6 +3,10 @@ module;
 
 module EBO;
 
+// PROTECTED
+EBO::EBO()
+= default;
+
 // PUBLIC
 unsigned int EBO::getEBOId()
 {
@@ -28,7 +32,8 @@ void EBO::buildInternal()
 {
     if (built) return;
 
-    if (!build(eboId, indiceCount, type)) log.error("Couldn't build EBO.");
+    if (!build(eboId, indiceCount, type))
+        log.error("Couldn't build EBO.");
     built = true;
 }
 

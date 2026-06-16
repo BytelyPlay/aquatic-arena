@@ -10,10 +10,11 @@ import Logger;
 import SimpleVAO;
 import SimpleVBO;
 import Vecs;
+import SimpleEBO;
 
 const std::vector<SimpleVAO::TypeEntry> Mesh::ENTRIES = {
-    {GL_UNSIGNED_BYTE, 3},
-    {GL_UNSIGNED_BYTE, 3}
+    {GL_UNSIGNED_BYTE, 3}, // Vertices
+    {GL_UNSIGNED_BYTE, 3} // Texture coordinates
 };
 
 Mesh::Mesh(
@@ -26,7 +27,7 @@ Mesh::Mesh(
         vertices.size() * sizeof(Vecs::Vec3b)
     );
     vao = std::make_unique<SimpleVAO>(*vbo, ENTRIES);
-    static_assert(false);
+    ebo = std::make_unique<SimpleEBO>(indices);
 }
 
 bool Mesh::draw()

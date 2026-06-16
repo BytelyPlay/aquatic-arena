@@ -6,12 +6,18 @@ import Logger;
 
 export class EBO
 {
+protected:
+    EBO();
 public:
     /**
      * Returns the EBO ID, will build if not built.
      * @return Returns 0 if not successful, otherwise the EBO ID
      */
     unsigned int getEBOId();
+    /**
+     * Returns the EBO ID, will build if not built.
+     * @return Returns 0 if not successful
+     */
     unsigned int getIndiceCount();
     /**
      * This gives you the type used for the indices in this EBO.
@@ -45,7 +51,7 @@ private:
      * If it was built or not, doesn't mean it was successful, just that we tried to build it.
      */
     bool built = false;
-private:
+protected:
     Logger& log = Logger::getInstance();
 public:
     virtual ~EBO() = default;

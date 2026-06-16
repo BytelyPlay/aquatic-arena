@@ -31,10 +31,11 @@ bool SimpleVAO::build(unsigned int& vaoId, GLenum& mode)
 bool SimpleVAO::fillVertexAttributes()
 {
     unsigned int offset = 0;
+    unsigned int stride = getStride();
 
     for (int i = 0; i < types.size(); i++)
     {
-        TypeEntry& entry = types[i];
+        const TypeEntry& entry = types[i];
 
         unsigned int sizeOfType = OpenGLUtils::getSizeOf(entry.type);
         unsigned int sizeOfEntry = sizeOfType * entry.size;
@@ -44,16 +45,34 @@ bool SimpleVAO::fillVertexAttributes()
             return false;
         }
 
+        // TODO: The stride calculation is incorrect
         glVertexAttribPointer(
             i, entry.size, entry.type,
-            GL_FALSE, sizeOfType * entry.size,
+            GL_FALSE, stride,
             reinterpret_cast<void*>(offset)
         );
         offset += sizeOfEntry;
 
         glEnableVertexAttribArray(i);
     }
+    glBindVertexArray(0);
     return true;
+}
+
+unsigned int SimpleVAO::getStride()
+{
+    unsigned int stride = 0;
+
+    for (const TypeEntry& t : types)
+        stride += t.size * OpenGLUtils::getSizeOf(t.type);
+    return stride;
+}
+
+void SimpleVAO::setVertexAttribute(
+    const unsigned int& stride, const unsigned int& offset
+)
+{
+
 }
 
 // PRIVATE

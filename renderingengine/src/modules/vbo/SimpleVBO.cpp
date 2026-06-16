@@ -7,7 +7,7 @@ module SimpleVBO;
 
 // PUBLIC
 SimpleVBO::SimpleVBO(std::vector<unsigned char> data) :
-data(data), VBO()
+data(data)
 {}
 
 SimpleVBO::SimpleVBO(const void* ptr, const size_t& size)
@@ -29,6 +29,7 @@ bool SimpleVBO::build(unsigned int& vboId)
         GL_ARRAY_BUFFER, data.size(),
         data.data(), GL_STATIC_DRAW
     );
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
     return true;
 }
 

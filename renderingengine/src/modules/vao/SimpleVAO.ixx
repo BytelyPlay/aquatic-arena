@@ -32,11 +32,17 @@ protected:
     bool build(unsigned int& vaoId, GLenum& mode) override;
 private:
     bool fillVertexAttributes();
+    unsigned int getStride();
+
+    void setVertexAttribute(
+        const unsigned int& stride,
+        const unsigned int& offset
+    );
 private:
     VBO& vbo;
     /**
      * The types in the proper order.
      * TODO: Add more information...
      */
-    std::vector<TypeEntry> types;
+    const std::vector<TypeEntry> types;
 };
