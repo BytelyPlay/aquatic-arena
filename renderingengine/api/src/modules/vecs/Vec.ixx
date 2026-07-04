@@ -2,7 +2,6 @@ module;
 #include <array>
 
 export module Vec;
-
 import Concepts;
 
 using size_t = std::size_t;

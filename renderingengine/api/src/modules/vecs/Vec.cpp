@@ -44,7 +44,7 @@ Vec<T, size> Vec<T, size>::operator+(Vec other) const
 template <typename T, size_t size>
 Vec<T, size> Vec<T, size>::operator-(Vec other) const
 {
-    Vec<T, size> result;
+    Vec result;
 
     for (int i = 0; i < size; i++)
         result[i] = (*this)[i] - other[i];
@@ -53,7 +53,7 @@ Vec<T, size> Vec<T, size>::operator-(Vec other) const
 template <typename T, size_t size>
 Vec<T, size> Vec<T, size>::operator*(Vec other) const
 {
-    Vec<T, size> result;
+    Vec result;
 
     for (int i = 0; i < size; i++)
         result[i] = (*this)[i] * other[i];
