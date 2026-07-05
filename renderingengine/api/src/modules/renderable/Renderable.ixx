@@ -15,6 +15,8 @@ public:
     virtual void setRotQuaternion(Vecs::Vec4f quat) = 0;
     virtual Vecs::Vec4f getRotQuaternion() = 0;
 public:
+    virtual ~Renderable() = default;
+public:
     Renderable(const Renderable&) = delete;
     Renderable(Renderable&&) = delete;
 

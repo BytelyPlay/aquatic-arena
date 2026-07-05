@@ -13,6 +13,9 @@ add_library(AquaRenderingEngineApi STATIC
         src/modules/utils/Concepts.ixx
         src/modules/AquaticRendering.ixx
         src/modules/renderable/Renderable.ixx
+        src/modules/utils/RenderableAccessor.ixx
+        src/modules/vecs/Vec.cpp
+        src/modules/renderable/RenderableSnapshot.ixx
 )
 
 target_link_libraries(AquaRenderingEngineApi PRIVATE glad GL glfw glm::glm stb_image)

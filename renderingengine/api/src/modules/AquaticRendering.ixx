@@ -17,14 +17,7 @@ public:
      * Begins the render loop.
      */
     void init();
-public:
-    void addRenderable(std::shared_ptr<Renderable> renderable);
-    std::shared_ptr<Renderable> getRenderable(int index);
-
-    size_t sizeOfRenderables();
-    void removeRenderable(std::shared_ptr<Renderable> renderable);
 private:
-    std::vector<std::shared_ptr<Renderable>> renderVector;
 public:
     AquaticRendering(const AquaticRendering&) = delete;
     AquaticRendering(AquaticRendering&&) = delete;
