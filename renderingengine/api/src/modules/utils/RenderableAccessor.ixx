@@ -14,6 +14,8 @@ using RenderableSPtr = std::shared_ptr<Renderable>;
  *
  * This project only uses it as a read-only accessor,
  * so the things that aren't marked as const don't have to be implemented.
+ *
+ * All functions must be thread-safe.
  */
 export class RenderableAccessor
 {
@@ -21,8 +23,10 @@ protected:
     RenderableAccessor();
 public:
     // Basic "operations" that aren't read-only like add or remove.
-    virtual void add(RenderableSPtr renderable) = 0;
-    virtual void remove(RenderableSPtr renderable) = 0;
+    virtual void add(RenderableSPtr renderable)
+    = 0;
+    virtual void remove(RenderableSPtr renderable)
+    = 0;
 public:
     // Basic "operations" that are read-only (get by index for example).
 
@@ -32,14 +36,16 @@ public:
      * @return The smart pointer to the Renderable, or nullptr if the index doesn't exist.
      */
     [[nodiscard]]
-    virtual RenderableSPtr get(int index) const = 0;
+    virtual RenderableSPtr get(int index)
+    const = 0;
 
     /**
      * Get how many elements are in the container.
      * @return Size of container
      */
     [[nodiscard]]
-    virtual size_t size() const = 0;
+    virtual size_t size()
+    const = 0;
 
     /**
      * Get a snapshot of the container.
@@ -49,17 +55,22 @@ public:
     virtual std::vector<RenderableSnapshot> getContainerSnapshot()
     const = 0;
 public:
-    // operators
+    // Operators
 
     /**
      * Gets a renderable.
      * @return The smart pointer to the Renderable, or nullptr if the index doesn't exist.
      */
-    virtual RenderableSPtr operator[]() const;
+    virtual RenderableSPtr operator[]()
+    const;
 public:
-    RenderableAccessor(const RenderableAccessor&) = delete;
-    RenderableAccessor(RenderableAccessor&&) = delete;
+    RenderableAccessor(const RenderableAccessor&)
+    = delete;
+    RenderableAccessor(RenderableAccessor&&)
+    = delete;
 
-    RenderableAccessor& operator=(const RenderableAccessor&) = delete;
-    RenderableAccessor& operator=(RenderableAccessor&&) = delete;
+    RenderableAccessor& operator=(const RenderableAccessor&)
+    = delete;
+    RenderableAccessor& operator=(RenderableAccessor&&)
+    = delete;
 };
