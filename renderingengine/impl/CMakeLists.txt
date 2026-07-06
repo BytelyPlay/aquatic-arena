@@ -9,8 +9,8 @@ file(GLOB_RECURSE MODULE_INTERFACES
 )
 find_package(OpenGL REQUIRED)
 
-add_library(AquaRenderingEngineImpl STATIC src/modules/AquaticRendering.cpp
-        src/modules/AquaticRendering.ixx
+add_library(AquaRenderingEngineImpl STATIC src/modules/OpenGLRenderingEngine.cpp
+        src/modules/OpenGLRenderingEngine.ixx
         src/modules/utils/Logger.ixx
         src/modules/utils/Logger.cpp
         src/modules/shaders/Shader.ixx

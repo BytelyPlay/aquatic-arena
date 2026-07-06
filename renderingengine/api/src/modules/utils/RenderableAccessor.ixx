@@ -61,7 +61,7 @@ public:
      * Gets a renderable.
      * @return The smart pointer to the Renderable, or nullptr if the index doesn't exist.
      */
-    virtual RenderableSPtr operator[]()
+    virtual RenderableSPtr operator[](int index)
     const;
 public:
     RenderableAccessor(const RenderableAccessor&)

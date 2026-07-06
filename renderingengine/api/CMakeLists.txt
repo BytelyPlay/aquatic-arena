@@ -7,7 +7,6 @@ set(CMAKE_CXX_SCAN_FOR_MODULES ON)
 file(GLOB_RECURSE MODULE_INTERFACES
         "src/modules/*.ixx"
 )
-find_package(OpenGL REQUIRED)
 
 add_library(AquaRenderingEngineApi STATIC
         src/modules/utils/Concepts.ixx
@@ -16,9 +15,11 @@ add_library(AquaRenderingEngineApi STATIC
         src/modules/utils/RenderableAccessor.ixx
         src/modules/vecs/Vec.cpp
         src/modules/renderable/RenderableSnapshot.ixx
+        src/modules/utils/RenderableAccessor.cpp
+        src/modules/AquaticRendering.cpp
 )
 
-target_link_libraries(AquaRenderingEngineApi PRIVATE glad GL glfw glm::glm stb_image)
+target_link_libraries(AquaRenderingEngineApi PRIVATE AquaRenderingEngineImpl)
 
 target_sources(
         AquaRenderingEngineApi

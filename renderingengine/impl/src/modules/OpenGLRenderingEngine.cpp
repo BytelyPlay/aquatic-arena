@@ -1,20 +1,17 @@
 module;
-#include <cassert>
 #include <condition_variable>
 
 #include "glad/gl.h"
 #include <GLFW/glfw3.h>
 #include <thread>
 
-#include "glm/vec4.hpp"
-
-module AquaticRendering;
+module OpenGLRenderingEngine;
 import Logger;
 import Vecs;
 
 // PUBLIC
-bool AquaticRendering::init(
-    int windowWidth, int windowHeight, std::string& windowTitle
+bool OpenGLRenderingEngine::init(
+    int windowWidth, int windowHeight, const std::string& windowTitle
 )
 {
     std::condition_variable cv;
@@ -44,7 +41,7 @@ bool AquaticRendering::init(
     return initialized;
 }
 
-void AquaticRendering::stopRendering()
+void OpenGLRenderingEngine::stopRendering()
 {
     glfwDestroyWindow(window);
 
@@ -54,21 +51,21 @@ void AquaticRendering::stopRendering()
 }
 
 // PUBLIC
-AquaticRendering::AquaticRendering()
+OpenGLRenderingEngine::OpenGLRenderingEngine()
 = default;
 // PUBLIC
-Vecs::Vec4f AquaticRendering::getBackgroundColor()
+Vecs::Vec4f OpenGLRenderingEngine::getBackgroundColor()
 {
     return this->backgroundColor;
 }
 
-void AquaticRendering::setBackgroundColor(Vecs::Vec4f backgroundColor)
+void OpenGLRenderingEngine::setBackgroundColor(Vecs::Vec4f backgroundColor)
 {
     this->backgroundColor = backgroundColor;
 }
 
 // PRIVATE
-bool AquaticRendering::initGLFW()
+bool OpenGLRenderingEngine::initGLFW()
 {
     if (glfwInit())
     {
@@ -89,7 +86,7 @@ bool AquaticRendering::initGLFW()
     }
 }
 
-bool AquaticRendering::initGlad()
+bool OpenGLRenderingEngine::initGlad()
 {
     if (!gladLoadGL(glfwGetProcAddress))
     {
@@ -102,15 +99,15 @@ bool AquaticRendering::initGlad()
     }
 }
 
-bool AquaticRendering::initOpenGL()
+bool OpenGLRenderingEngine::initOpenGL()
 {
     log.info("OpenGL Successfully initialized.");
     return true;
 }
 
-bool AquaticRendering::initAll(
+bool OpenGLRenderingEngine::initAll(
     int windowWidth, int windowHeight,
-    std::string& windowTitle
+    const std::string& windowTitle
 )
 {
     return initGLFW() && createWindowAndSetupContext(
@@ -121,7 +118,7 @@ bool AquaticRendering::initAll(
 }
 
 // PRIVATE
-void AquaticRendering::initRenderingLoop()
+void OpenGLRenderingEngine::initRenderingLoop()
 {
     while (true)
     {
@@ -131,7 +128,7 @@ void AquaticRendering::initRenderingLoop()
     glfwMakeContextCurrent(nullptr);
 }
 // PRIVATE
-void AquaticRendering::renderFrame()
+void OpenGLRenderingEngine::renderFrame()
 {
     // This is just a temporary placeholder.
     glfwPollEvents();
@@ -148,7 +145,7 @@ void AquaticRendering::renderFrame()
 }
 
 // PRIVATE
-bool AquaticRendering::createWindowAndSetupContext(
+bool OpenGLRenderingEngine::createWindowAndSetupContext(
     int width, int height,
     std::string title,
     GLFWmonitor* monitor, GLFWwindow* share

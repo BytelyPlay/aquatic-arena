@@ -3,14 +3,11 @@ module;
 
 #include "GLFW/glfw3.h"
 
-export module AquaticRendering;
+export module OpenGLRenderingEngine;
 import Logger;
 import Vecs;
 
-/**
- * This class, is the class you need to start with, to begin using this library.
- */
-export class AquaticRendering
+export class OpenGLRenderingEngine
 {
     constexpr static int OPENGL_MAJOR_VERSION = 4;
     constexpr static int OPENGL_MINOR_VERSION = 6;
@@ -19,7 +16,7 @@ public:
      * Initializes everything and begins the rendering loop.
      * @return Whether it was successful or not.
      */
-    bool init(int windowWidth, int windowHeight, std::string& windowTitle);
+    bool init(int windowWidth, int windowHeight, const std::string& windowTitle);
     /**
      * Resets everything completely, you have to call init again.
      */
@@ -28,7 +25,7 @@ public:
     /**
      * Constructor for AquaticRendering.
      */
-    AquaticRendering();
+    OpenGLRenderingEngine();
 public:
     Vecs::Vec4f getBackgroundColor();
     void setBackgroundColor(Vecs::Vec4f backgroundColor);
@@ -37,7 +34,7 @@ private:
     bool initGlad();
     bool initOpenGL();
 
-    bool initAll(int windowWidth, int windowHeight, std::string& windowTitle);
+    bool initAll(int windowWidth, int windowHeight, const std::string& windowTitle);
 private:
     void renderFrame();
     void initRenderingLoop();
@@ -64,9 +61,9 @@ private:
      */
     Vecs::Vec4f backgroundColor = {0.0f, 0.0f, 0.0f, 0.0f};
 public:
-    AquaticRendering(const AquaticRendering&) = delete;
-    AquaticRendering(AquaticRendering&&) = delete;
+    OpenGLRenderingEngine(const OpenGLRenderingEngine&) = delete;
+    OpenGLRenderingEngine(OpenGLRenderingEngine&&) = delete;
 
-    AquaticRendering operator=(const AquaticRendering&) = delete;
-    AquaticRendering operator=(AquaticRendering&&) = delete;
+    OpenGLRenderingEngine operator=(const OpenGLRenderingEngine&) = delete;
+    OpenGLRenderingEngine operator=(OpenGLRenderingEngine&&) = delete;
 };
