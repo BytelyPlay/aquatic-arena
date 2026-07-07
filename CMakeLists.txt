@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_SCAN_FOR_MODULES ON)
 
 add_subdirectory(renderingengine/api)
-add_subdirectory(renderingengine/impl)
+add_subdirectory(renderingengine/openglimpl)
 
 add_subdirectory(gameengine)
 add_subdirectory(game)

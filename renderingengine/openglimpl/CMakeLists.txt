@@ -4,15 +4,15 @@ set(CMAKE_CXX_STANDARD 26)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_SCAN_FOR_MODULES ON)
 
+add_subdirectory(api)
+
 file(GLOB_RECURSE MODULE_INTERFACES
         "src/modules/*.ixx"
 )
 find_package(OpenGL REQUIRED)
 
-add_library(AquaRenderingEngineImpl STATIC src/modules/OpenGLRenderingEngine.cpp
-        src/modules/OpenGLRenderingEngine.ixx
-        src/modules/utils/Logger.ixx
-        src/modules/utils/Logger.cpp
+add_library(OpenGLEngineImpl STATIC api/src/modules/OpenGLRenderingEngine.cpp
+        api/src/modules/OpenGLRenderingEngine.ixx
         src/modules/shaders/Shader.ixx
         src/modules/vbo/VBO.ixx
         src/modules/vbo/VBO.cpp
@@ -25,8 +25,6 @@ add_library(AquaRenderingEngineImpl STATIC src/modules/OpenGLRenderingEngine.cpp
         src/modules/meshes/Mesh.cpp
         src/modules/textures/Texture.ixx
         src/modules/textures/Texture.cpp
-        src/modules/utils/FileUtils.ixx
-        src/modules/utils/FileUtils.cpp
         src/modules/vbo/SimpleVBO.ixx
         src/modules/vbo/SimpleVBO.cpp
         src/modules/shaders/Shader.cpp
@@ -40,10 +38,10 @@ add_library(AquaRenderingEngineImpl STATIC src/modules/OpenGLRenderingEngine.cpp
         src/modules/ebo/SimpleEBO.cpp
 )
 
-target_link_libraries(AquaRenderingEngineImpl PRIVATE glad GL glfw glm::glm stb_image AquaRenderingEngineApi)
+target_link_libraries(OpenGLEngineImpl PRIVATE glad GL glfw glm::glm stb_image AquaRenderingEngineApi)
 
 target_sources(
-        AquaRenderingEngineImpl
+        OpenGLEngineImpl
         PUBLIC
         FILE_SET CXX_MODULES FILES ${MODULE_INTERFACES}
 )

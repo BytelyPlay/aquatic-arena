@@ -17,9 +17,11 @@ add_library(AquaRenderingEngineApi STATIC
         src/modules/renderable/RenderableSnapshot.ixx
         src/modules/utils/RenderableAccessor.cpp
         src/modules/AquaticRendering.cpp
+        src/modules/utils/FileUtils.cpp
+        src/modules/utils/Logger.cpp
+        src/modules/utils/Logger.ixx
+        src/modules/utils/FileUtils.ixx
 )
-
-target_link_libraries(AquaRenderingEngineApi PRIVATE AquaRenderingEngineImpl)
 
 target_sources(
         AquaRenderingEngineApi

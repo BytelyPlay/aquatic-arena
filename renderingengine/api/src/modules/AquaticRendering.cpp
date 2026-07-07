@@ -1,9 +1,16 @@
 module;
+#include <sys/types.h>
+#include <string>
 
 module AquaticRendering;
 
+// PROTECTED
+AquaticRendering::AquaticRendering()
+= default;
+
 // PUBLIC
 // PUBLIC
-// PRIVATE
 // PUBLIC
 // PUBLIC
+AquaticRendering::~AquaticRendering()
+= default;

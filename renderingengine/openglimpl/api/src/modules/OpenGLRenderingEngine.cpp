@@ -10,8 +10,13 @@ import Logger;
 import Vecs;
 
 // PUBLIC
+OpenGLRenderingEngine::OpenGLRenderingEngine()
+{}
+// PUBLIC
 bool OpenGLRenderingEngine::init(
-    int windowWidth, int windowHeight, const std::string& windowTitle
+    std::shared_ptr<RenderableAccessor> accessor,
+    const uint& width, const uint& height,
+    const std::string& title
 )
 {
     std::condition_variable cv;
@@ -21,12 +26,12 @@ bool OpenGLRenderingEngine::init(
 
     renderThread = std::thread([
         this,
-        windowWidth, windowHeight, &windowTitle,
+        width, height, &title,
         &cv
     ]()
     {
         if (!initAll(
-            windowWidth, windowHeight, windowTitle
+            width, height, title
         ))
         {
             log.warn("Couldn't fully initialize everything.");
@@ -41,18 +46,16 @@ bool OpenGLRenderingEngine::init(
     return initialized;
 }
 
-void OpenGLRenderingEngine::stopRendering()
+void OpenGLRenderingEngine::shutdown()
 {
+    shouldRender = false;
+
     glfwDestroyWindow(window);
 
-    shouldRender = false;
     initialized = false;
     window = nullptr;
 }
 
-// PUBLIC
-OpenGLRenderingEngine::OpenGLRenderingEngine()
-= default;
 // PUBLIC
 Vecs::Vec4f OpenGLRenderingEngine::getBackgroundColor()
 {

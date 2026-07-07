@@ -4,7 +4,6 @@ module;
 export module AquaticRendering;
 import Renderable;
 import RenderableAccessor;
-import OpenGLRenderingEngine;
 import Vecs;
 
 export class AquaticRendering
@@ -22,8 +21,17 @@ public:
      * @return Whether it was successful or not.
      */
     virtual bool init(
-        std::shared_ptr<RenderableAccessor> accessor
+        std::shared_ptr<RenderableAccessor> accessor,
+        const uint& width, const uint& height,
+        const std::string& title
     ) = 0;
+
+    /**
+     * Stops rendering and closes the window.
+     * This instance cannot be reused after this is called.
+     * Please call this before letting this go out of scope or freeing its memory.
+     */
+    virtual void shutdown() = 0;
 public:
     /**
      * Sets the color of the background.
@@ -49,5 +57,5 @@ public:
     AquaticRendering& operator=(const AquaticRendering&) = delete;
     AquaticRendering& operator=(AquaticRendering&&) = delete;
 public:
-    virtual ~AquaticRendering() = default;
+    virtual ~AquaticRendering();
 };

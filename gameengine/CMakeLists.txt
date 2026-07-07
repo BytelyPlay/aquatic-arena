@@ -15,4 +15,4 @@ target_sources(
         PUBLIC
         FILE_SET CXX_MODULES FILES ${MODULE_INTERFACES}
 )
-target_link_libraries(AquaEngine PRIVATE AquaRenderingEngineApi)
+target_link_libraries(AquaEngine PUBLIC OpenGLEngineApi)
