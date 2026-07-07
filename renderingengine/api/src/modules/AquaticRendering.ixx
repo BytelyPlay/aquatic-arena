@@ -37,7 +37,7 @@ public:
      * Sets the color of the background.
      * There should be an assert
      * just in case the developer set the background color
-     * before initing the engine.
+     * before initializing the engine.
      *
      * @param rgba The background color (RGBA correspondingly) in the 0-1 format
      */
