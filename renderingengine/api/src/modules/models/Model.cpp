@@ -1,14 +1,15 @@
 module;
 #include <vector>
+#include <memory>
 
 module Model;
 
-// PUBLIC
-Model::Model(const std::vector<Mesh>& meshes) :
+// PROTECTED
+Model::Model(const std::vector<std::shared_ptr<Mesh>>& meshes) :
 meshes(meshes) {}
 
 // PUBLIC
-const std::vector<Mesh>& Model::getMeshes() const
+const MeshVector& Model::getMeshes() const
 {
     return meshes;
 }

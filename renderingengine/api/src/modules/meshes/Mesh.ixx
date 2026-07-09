@@ -4,18 +4,13 @@ module;
 
 export module Mesh;
 import Vecs;
+import Vertex;
 
+/* TODO: Some kind of Mesh creator from vertices and indices
+ * that is implemented by the underlying engine.
+ */
 export class Mesh
 {
-public:
-    /**
-     * One vertex
-     */
-    struct Vertex
-    {
-        Vecs::Vec3f position;
-        Vecs::Vec3f texCoord;
-    };
 protected:
     /**
      * Construct a mesh

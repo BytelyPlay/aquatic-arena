@@ -19,6 +19,8 @@ add_library(AquaRenderingEngineApi STATIC
         src/modules/meshes/Mesh.cpp
         src/modules/models/Model.ixx
         src/modules/models/Model.cpp
+        src/modules/meshes/Vertex.ixx
+        src/modules/meshes/Vertex.cpp
 )
 
 target_sources(

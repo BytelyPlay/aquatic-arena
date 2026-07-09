@@ -10,16 +10,14 @@ import Texture;
 import Vecs;
 import Logger;
 import SimpleVAO;
+import Vertex;
+import Mesh;
 
-export struct CompiledMesh
+export class CompiledMesh : public Mesh
 {
+private:
     static const std::vector<SimpleVAO::TypeEntry> ENTRIES;
-
-    struct Vertex
-    {
-        Vecs::Vec3b vertex;
-        Vecs::Vec3b textureCoord;
-    };
+public:
     CompiledMesh(
         std::vector<Vertex> vertices,
         std::vector<unsigned int> indices

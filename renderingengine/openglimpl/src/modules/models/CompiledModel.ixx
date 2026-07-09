@@ -3,11 +3,14 @@ module;
 
 export module CompiledModel;
 import CompiledMesh;
+import Model;
 
-export class CompiledModel
+export class CompiledModel : public Model
 {
 public:
-    CompiledModel(CompiledMesh meshes);
+    CompiledModel(const std::vector<CompiledMesh>& meshes);
+public:
+    const std::vector<CompiledMesh>& getMeshes();
 private:
     std::vector<CompiledMesh> meshes;
 };
