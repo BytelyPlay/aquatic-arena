@@ -15,6 +15,10 @@ add_library(AquaRenderingEngineApi STATIC
         src/modules/renderable/RenderableSnapshot.ixx
         src/modules/utils/RenderableAccessor.cpp
         src/modules/AquaticRendering.cpp
+        src/modules/meshes/Mesh.ixx
+        src/modules/meshes/Mesh.cpp
+        src/modules/models/Model.ixx
+        src/modules/models/Model.cpp
 )
 
 target_sources(

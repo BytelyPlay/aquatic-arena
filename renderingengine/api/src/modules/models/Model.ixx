@@ -7,7 +7,9 @@ import Mesh;
 export class Model
 {
 public:
-    Model(Mesh meshes);
+    Model(const std::vector<Mesh>& meshes);
+public:
+    const std::vector<Mesh>& getMeshes();
 private:
     std::vector<Mesh> meshes;
 };

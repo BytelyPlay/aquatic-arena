@@ -2,9 +2,7 @@ module;
 #include <memory>
 #include <vector>
 
-#include "../../../../libs/glfw/src/internal.h"
-
-export module Mesh;
+export module CompilableMesh;
 import VAO;
 import VBO;
 import EBO;
@@ -13,7 +11,7 @@ import Vecs;
 import Logger;
 import SimpleVAO;
 
-export struct Mesh
+export struct CompilableMesh
 {
     static const std::vector<SimpleVAO::TypeEntry> ENTRIES;
 
@@ -22,7 +20,7 @@ export struct Mesh
         Vecs::Vec3b vertex;
         Vecs::Vec3b textureCoord;
     };
-    Mesh(
+    CompilableMesh(
         std::vector<Vertex> vertices,
         std::vector<unsigned int> indices
     );
@@ -37,7 +35,7 @@ export struct Mesh
      * Draws the Mesh.
      * @return Successful or not
      */
-    bool draw();
+    bool draw() const;
 private:
     Logger& log = Logger::getInstance();
 };

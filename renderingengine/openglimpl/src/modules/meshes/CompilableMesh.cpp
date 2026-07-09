@@ -1,23 +1,21 @@
 module;
-#include <cassert>
-#include <cstring>
 #include <glad/gl.h>
 #include <memory>
 #include <vector>
 
-module Mesh;
+module CompilableMesh;
 import Logger;
 import SimpleVAO;
 import SimpleVBO;
 import Vecs;
 import SimpleEBO;
 
-const std::vector<SimpleVAO::TypeEntry> Mesh::ENTRIES = {
+const std::vector<SimpleVAO::TypeEntry> CompilableMesh::ENTRIES = {
     {GL_UNSIGNED_BYTE, 3}, // Vertices
     {GL_UNSIGNED_BYTE, 3} // Texture coordinates
 };
 
-Mesh::Mesh(
+CompilableMesh::CompilableMesh(
     std::vector<Vertex> vertices,
     std::vector<unsigned int> indices
 )
@@ -30,7 +28,7 @@ Mesh::Mesh(
     ebo = std::make_unique<SimpleEBO>(indices);
 }
 
-bool Mesh::draw()
+bool CompilableMesh::draw() const
 {
     unsigned int vaoId = vao->getVAOId();
     unsigned int eboId = ebo->getEBOId();

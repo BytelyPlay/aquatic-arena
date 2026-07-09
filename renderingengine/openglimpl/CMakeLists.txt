@@ -18,11 +18,11 @@ add_library(OpenGLEngineImpl STATIC api/src/modules/OpenGLRenderingEngine.cpp
         src/modules/vbo/VBO.cpp
         src/modules/vao/VAO.ixx
         src/modules/vao/VAO.cpp
-        src/modules/meshes/Mesh.ixx
+        src/modules/meshes/CompilableMesh.ixx
         src/modules/ebo/EBO.ixx
         src/modules/ebo/EBO.cpp
-        src/modules/meshes/Mesh.cpp
-        src/modules/meshes/Mesh.cpp
+        src/modules/meshes/CompilableMesh.cpp
+        src/modules/meshes/CompilableMesh.cpp
         src/modules/textures/Texture.ixx
         src/modules/textures/Texture.cpp
         src/modules/vbo/SimpleVBO.ixx
@@ -32,8 +32,8 @@ add_library(OpenGLEngineImpl STATIC api/src/modules/OpenGLRenderingEngine.cpp
         src/modules/vao/SimpleVAO.cpp
         src/modules/utils/OpenGLUtils.ixx
         src/modules/utils/OpenGLUtils.cpp
-        src/modules/models/Model.ixx
-        src/modules/models/Model.cpp
+        src/modules/models/CompilableModel.ixx
+        src/modules/models/CompilableModel.cpp
         src/modules/ebo/SimpleEBO.ixx
         src/modules/ebo/SimpleEBO.cpp
 )
