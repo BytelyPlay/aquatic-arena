@@ -3,7 +3,7 @@ module;
 #include <memory>
 #include <vector>
 
-module CompilableMesh;
+module CompiledMesh;
 import Logger;
 import SimpleVAO;
 import SimpleVBO;

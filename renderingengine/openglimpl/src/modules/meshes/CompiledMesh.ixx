@@ -2,7 +2,7 @@ module;
 #include <memory>
 #include <vector>
 
-export module CompilableMesh;
+export module CompiledMesh;
 import VAO;
 import VBO;
 import EBO;
@@ -11,7 +11,7 @@ import Vecs;
 import Logger;
 import SimpleVAO;
 
-export struct CompilableMesh
+export struct CompiledMesh
 {
     static const std::vector<SimpleVAO::TypeEntry> ENTRIES;
 
@@ -20,7 +20,7 @@ export struct CompilableMesh
         Vecs::Vec3b vertex;
         Vecs::Vec3b textureCoord;
     };
-    CompilableMesh(
+    CompiledMesh(
         std::vector<Vertex> vertices,
         std::vector<unsigned int> indices
     );
