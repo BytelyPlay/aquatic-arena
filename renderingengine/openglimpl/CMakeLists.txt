@@ -38,7 +38,8 @@ add_library(OpenGLEngineImpl STATIC api/src/modules/OpenGLRenderingEngine.cpp
         src/modules/ebo/SimpleEBO.cpp
 )
 
-target_link_libraries(OpenGLEngineImpl PRIVATE glad GL glfw glm::glm stb_image AquaRenderingEngineApi)
+target_link_libraries(OpenGLEngineImpl PRIVATE
+        glad GL glfw glm::glm stb_image AquaRenderingEngineApi Common)
 
 target_sources(
         OpenGLEngineImpl

@@ -9,18 +9,12 @@ file(GLOB_RECURSE MODULE_INTERFACES
 )
 
 add_library(AquaRenderingEngineApi STATIC
-        src/modules/utils/Concepts.ixx
         src/modules/AquaticRendering.ixx
         src/modules/renderable/Renderable.ixx
         src/modules/utils/RenderableAccessor.ixx
-        src/modules/vecs/Vec.cpp
         src/modules/renderable/RenderableSnapshot.ixx
         src/modules/utils/RenderableAccessor.cpp
         src/modules/AquaticRendering.cpp
-        src/modules/utils/FileUtils.cpp
-        src/modules/utils/Logger.cpp
-        src/modules/utils/Logger.ixx
-        src/modules/utils/FileUtils.ixx
 )
 
 target_sources(
@@ -28,3 +22,4 @@ target_sources(
         PUBLIC
         FILE_SET CXX_MODULES FILES ${MODULE_INTERFACES}
 )
+target_link_libraries(AquaRenderingEngineApi PUBLIC Common)

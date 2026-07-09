@@ -14,7 +14,7 @@ add_library(OpenGLEngineApi STATIC
         src/modules/OpenGLRenderingEngine.ixx
 )
 
-target_link_libraries(OpenGLEngineApi PRIVATE glad GL glfw glm::glm stb_image)
+target_link_libraries(OpenGLEngineApi PRIVATE glad GL glfw glm::glm stb_image Common)
 target_link_libraries(OpenGLEngineApi PUBLIC AquaRenderingEngineApi)
 
 target_sources(

@@ -8,11 +8,13 @@ file(GLOB_RECURSE MODULE_INTERFACES
         "src/modules/*.ixx"
 )
 
-add_library(AquaEngine STATIC src/modules/AquaEngine.cpp)
+add_library(Common STATIC src/modules/utils/Concepts.ixx
+        src/modules/utils/FileUtils.cpp
+        src/modules/utils/Logger.cpp
+        src/modules/vecs/Vec.cpp)
 
 target_sources(
-        AquaEngine
+        Common
         PUBLIC
         FILE_SET CXX_MODULES FILES ${MODULE_INTERFACES}
 )
-target_link_libraries(AquaEngine PUBLIC OpenGLEngineApi Common)
