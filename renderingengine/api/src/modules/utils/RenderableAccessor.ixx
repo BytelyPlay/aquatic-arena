@@ -9,6 +9,8 @@ import RenderableSnapshot;
 // Renderable Smart Pointer
 using RenderableSPtr = std::shared_ptr<Renderable>;
 
+// TODO: Replace this whole temporary system with a resource id-like system.
+
 /**
  * A thread-safe accessor for a list of renderable objects.
  *
