@@ -32,7 +32,7 @@ protected:
     bool build(unsigned int& vaoId, GLenum& mode) override;
 private:
     bool fillVertexAttributes();
-    unsigned int getStride();
+    unsigned int getStride(const TypeEntry& entry, const unsigned int& offset);
 
     void setVertexAttribute(
         const unsigned int& stride,
