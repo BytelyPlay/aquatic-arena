@@ -3,7 +3,7 @@ module;
 
 export module AquaticRendering;
 import Renderable;
-import RenderableAccessor;
+import RenderableContainerAccessor;
 import Vecs;
 
 export class AquaticRendering
@@ -21,7 +21,7 @@ public:
      * @return Whether it was successful or not.
      */
     virtual bool init(
-        std::shared_ptr<RenderableAccessor> accessor,
+        std::shared_ptr<const RenderableContainerAccessor> accessor,
         const uint& width, const uint& height,
         const std::string& title
     ) = 0;

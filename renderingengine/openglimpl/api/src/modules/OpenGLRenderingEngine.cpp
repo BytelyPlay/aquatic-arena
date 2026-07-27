@@ -8,13 +8,15 @@ module;
 module OpenGLRenderingEngine;
 import Logger;
 import Vecs;
+import RenderableSnapshot;
 
 // PUBLIC
 OpenGLRenderingEngine::OpenGLRenderingEngine()
-{}
+= default;
+
 // PUBLIC
 bool OpenGLRenderingEngine::init(
-    std::shared_ptr<RenderableAccessor> accessor,
+    std::shared_ptr<const RenderableContainerAccessor> accessor,
     const uint& width, const uint& height,
     const std::string& title
 )
@@ -27,8 +29,8 @@ bool OpenGLRenderingEngine::init(
     renderThread = std::thread([
         this,
         width, height, &title,
-        &cv
-    ]()
+        &cv, accessor
+        ]()
     {
         if (!initAll(
             width, height, title
@@ -38,7 +40,8 @@ bool OpenGLRenderingEngine::init(
             cv.notify_all();
             return;
         }
-        initRenderingLoop();
+        initRenderingLoop(accessor);
+
         initialized = true;
         cv.notify_all();
     });
@@ -121,17 +124,21 @@ bool OpenGLRenderingEngine::initAll(
 }
 
 // PRIVATE
-void OpenGLRenderingEngine::initRenderingLoop()
+void OpenGLRenderingEngine::initRenderingLoop(
+    std::shared_ptr<const RenderableContainerAccessor> accessor
+)
 {
     while (true)
     {
         if (!shouldRender) break;
-        renderFrame();
+        renderFrame(accessor);
     }
     glfwMakeContextCurrent(nullptr);
 }
 // PRIVATE
-void OpenGLRenderingEngine::renderFrame()
+void OpenGLRenderingEngine::renderFrame(
+    const std::shared_ptr<const RenderableContainerAccessor> accessor
+)
 {
     // This is just a temporary placeholder.
     glfwPollEvents();
@@ -143,6 +150,13 @@ void OpenGLRenderingEngine::renderFrame()
         backgroundColor.w
     );
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    std::vector<RenderableSnapshot> snapshots = accessor->getContainerSnapshot();
+
+    for (const RenderableSnapshot& snapshot : snapshots)
+    {
+        snapshot.model
+    }
 
     glfwSwapBuffers(window);
 }

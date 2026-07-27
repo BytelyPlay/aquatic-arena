@@ -18,11 +18,11 @@ add_library(OpenGLEngineImpl STATIC api/src/modules/OpenGLRenderingEngine.cpp
         src/modules/vbo/VBO.cpp
         src/modules/vao/VAO.ixx
         src/modules/vao/VAO.cpp
-        src/modules/meshes/CompiledMesh.ixx
+        src/modules/meshes/CompilableMesh.ixx
         src/modules/ebo/EBO.ixx
         src/modules/ebo/EBO.cpp
-        src/modules/meshes/CompiledMesh.cpp
-        src/modules/meshes/CompiledMesh.cpp
+        src/modules/meshes/CompilableMesh.cpp
+        src/modules/meshes/CompilableMesh.cpp
         src/modules/textures/Texture.ixx
         src/modules/textures/Texture.cpp
         src/modules/vbo/SimpleVBO.ixx

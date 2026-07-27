@@ -21,6 +21,7 @@ unsigned int VBO::getVBOId()
 bool VBO::bind()
 {
     unsigned int id = getVBOId();
+
     if (id <= 0)
     {
         log.error("Couldn't bind VBO.");

@@ -9,7 +9,7 @@ export module OpenGLRenderingEngine;
 import Logger;
 import Vecs;
 import AquaticRendering;
-import RenderableAccessor;
+import RenderableContainerAccessor;
 
 export class OpenGLRenderingEngine : public AquaticRendering
 {
@@ -23,7 +23,7 @@ public:
      * @return Whether it was successful or not.
      */
     bool init(
-        std::shared_ptr<RenderableAccessor> accessor,
+        std::shared_ptr<const RenderableContainerAccessor> accessor,
         const uint& width, const uint& height,
         const std::string& title
     ) override;
@@ -51,8 +51,8 @@ private:
 
     bool initAll(int windowWidth, int windowHeight, const std::string& windowTitle);
 private:
-    void renderFrame();
-    void initRenderingLoop();
+    void renderFrame(std::shared_ptr<const RenderableContainerAccessor> accessor);
+    void initRenderingLoop(std::shared_ptr<const RenderableContainerAccessor> accessor);
 private:
     bool createWindowAndSetupContext(
         int width, int height,

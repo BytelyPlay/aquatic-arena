@@ -3,6 +3,7 @@ module;
 export module VBO;
 import Logger;
 
+// TODO: Please use a LazyHolder class.
 export class VBO
 {
 public:

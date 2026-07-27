@@ -19,6 +19,10 @@ public:
     [[nodiscard]]
     virtual const MeshVector&
         getMeshes() const = 0;
+public:
+    virtual void draw();
 private:
     MeshVector meshes;
+public:
+    virtual ~Model() = default;
 };

@@ -3,7 +3,7 @@ module;
 #include <memory>
 #include <vector>
 
-module CompiledMesh;
+module CompilableMesh;
 import Logger;
 import SimpleVAO;
 import SimpleVBO;
@@ -18,7 +18,7 @@ const std::vector<SimpleVAO::TypeEntry> CompilableMesh::ENTRIES = {
 CompilableMesh::CompilableMesh(
     std::vector<Vertex> vertices,
     std::vector<unsigned int> indices
-)
+) : Mesh(vertices, indices)
 {
     vbo = std::make_unique<SimpleVBO>(
         vertices.data(),

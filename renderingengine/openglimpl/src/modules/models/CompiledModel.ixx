@@ -1,16 +1,18 @@
 module;
 #include <vector>
 
-export module CompiledModel;
-import CompiledMesh;
+export module CompilableModel;
+import CompilableMesh;
 import Model;
 
-export class CompiledModel : public Model
+export class CompilableModel : public Model
 {
 public:
-    CompiledModel(const std::vector<CompiledMesh>& meshes);
+    CompilableModel(const std::vector<CompilableMesh>& meshes);
 public:
-    const std::vector<CompiledMesh>& getMeshes();
+    const std::vector<CompilableMesh>& getMeshes();
+public:
+    void draw() override;
 private:
-    std::vector<CompiledMesh> meshes;
+    std::vector<CompilableMesh> meshes;
 };

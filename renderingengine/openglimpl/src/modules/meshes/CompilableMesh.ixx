@@ -2,7 +2,7 @@ module;
 #include <memory>
 #include <vector>
 
-export module CompiledMesh;
+export module CompilableMesh;
 import VAO;
 import VBO;
 import EBO;
@@ -13,12 +13,12 @@ import SimpleVAO;
 import Vertex;
 import Mesh;
 
-export class CompiledMesh : public Mesh
+export class CompilableMesh : public Mesh
 {
 private:
     static const std::vector<SimpleVAO::TypeEntry> ENTRIES;
 public:
-    CompiledMesh(
+    CompilableMesh(
         std::vector<Vertex> vertices,
         std::vector<unsigned int> indices
     );

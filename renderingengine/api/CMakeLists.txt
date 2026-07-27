@@ -11,9 +11,9 @@ file(GLOB_RECURSE MODULE_INTERFACES
 add_library(AquaRenderingEngineApi STATIC
         src/modules/AquaticRendering.ixx
         src/modules/renderable/Renderable.ixx
-        src/modules/utils/RenderableAccessor.ixx
+        src/modules/renderable/RenderableContainerAccessor.ixx
         src/modules/renderable/RenderableSnapshot.ixx
-        src/modules/utils/RenderableAccessor.cpp
+        src/modules/renderable/RenderableContainerAccessor.cpp
         src/modules/AquaticRendering.cpp
         src/modules/meshes/Mesh.ixx
         src/modules/meshes/Mesh.cpp

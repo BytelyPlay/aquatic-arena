@@ -2,7 +2,7 @@ module;
 #include <memory>
 #include <vector>
 
-export module RenderableAccessor;
+export module RenderableContainerAccessor;
 import Renderable;
 import RenderableSnapshot;
 
@@ -19,10 +19,10 @@ using RenderableSPtr = std::shared_ptr<Renderable>;
  *
  * All functions must be thread-safe.
  */
-export class RenderableAccessor
+export class RenderableContainerAccessor
 {
 protected:
-    RenderableAccessor();
+    RenderableContainerAccessor();
 public:
     // Basic "operations" that aren't read-only like add or remove.
     virtual void add(RenderableSPtr renderable)
@@ -66,13 +66,15 @@ public:
     virtual RenderableSPtr operator[](int index)
     const;
 public:
-    RenderableAccessor(const RenderableAccessor&)
+    RenderableContainerAccessor(const RenderableContainerAccessor&)
     = delete;
-    RenderableAccessor(RenderableAccessor&&)
+    RenderableContainerAccessor(RenderableContainerAccessor&&)
     = delete;
 
-    RenderableAccessor& operator=(const RenderableAccessor&)
+    RenderableContainerAccessor& operator=(const RenderableContainerAccessor&)
     = delete;
-    RenderableAccessor& operator=(RenderableAccessor&&)
+    RenderableContainerAccessor& operator=(RenderableContainerAccessor&&)
     = delete;
+public:
+    virtual ~RenderableContainerAccessor() = default;
 };
