@@ -76,7 +76,7 @@ public:
     /**
      * In this Vec4 X = R, Y = G, Z = B, W = A
      */
-    Vecs::Vec4f backgroundColor = {0.0f, 0.0f, 0.0f, 0.0f};
+    Vecs::Vec4f backgroundColor = {.x = 0.0f, .y = 0.0f, .z = 0.0f, .w = 0.0f};
 public:
     OpenGLRenderingEngine(const OpenGLRenderingEngine&) = delete;
     OpenGLRenderingEngine(OpenGLRenderingEngine&&) = delete;
